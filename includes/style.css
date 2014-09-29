@@ -1,0 +1,52 @@
+
+body {
+    background-color: #292929;
+    color: #DEDEDE;
+    text-align: center;
+    align-content: center;
+}
+
+h1 {
+
+}
+
+#form-container {
+    width:50%;
+    background-color: #404040;
+    border-radius: 10px;
+    height:auto;
+    font-size: 17px;
+}
+
+.radio {
+    text-align: left;
+}
+
+.col-lg-3 {
+    text-align: left;
+}
+
+select {
+
+}
+
+option {
+    color:#292929;
+}
+
+#delta_logo {
+    height: 10%;
+    width:4%;
+}
+
+.col-lg-8 {
+    text-align: left;
+}
+
+.col-lg-4 {
+    font-size: ;
+}
+
+#theform {
+    align-content: center;
+}
