@@ -92,7 +92,7 @@ if(dept&&prof_cnt&&mark&&sem&&sem_type&&exam_type&&date)
 
     document.getElementsByName('date')[0].value = m;
 
-    alert(document.getElementsByName('date')[0].value);
+//    alert(document.getElementsByName('date')[0].value);
 //    alert(m);
 
     document.getElementById('theform').submit();

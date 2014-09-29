@@ -9,6 +9,10 @@ $date = $_POST['date'];
 $dept = $_POST['dept'];
 $prof_cnt = $_POST['prof_cnt'];
 
+if(!isset($date))
+{
+    header("Location: ./index.php");
+}
 
 
 ?>
@@ -23,6 +27,15 @@ $prof_cnt = $_POST['prof_cnt'];
         </title>
     </head>
     <body>
+
+<?php
+//          Initialising the count variable for the javascipt
+            echo("<script>");
+            echo("var count = $prof_cnt ;");
+            echo("</script>");
+
+?>
+
         <h1>
         <img src="imgs/logo_white.png" id="delta_logo">
         CTMails
@@ -47,8 +60,7 @@ $prof_cnt = $_POST['prof_cnt'];
         <form class="form-horizontal" action="./sdf.php" method="post" id="theform">
 
             <?php
-//            Generating The Input Fields
-
+//          These are the details received from first page.
             echo("<input type=\"text\" name=\"exam_type\" value=\"$exam_type\" style=\"display:none;\"> ");
             echo("<input type=\"text\" name=\"sem\" value=\"$sem\" style=\"display:none;\"> ");
             echo("<input type=\"text\" name=\"sem_type\" value=\"$sem_type\" style=\"display:none;\"> ");
@@ -57,25 +69,27 @@ $prof_cnt = $_POST['prof_cnt'];
             echo("<input type=\"text\" name=\"dept\" value=\"$dept\" style=\"display:none;\"> ");
             echo("<input type=\"text\" name=\"prof_cnt\" value=\"$prof_cnt\" style=\"display:none;\"> ");
 
+
+//            Generating The Input Fields
             echo("<br><br>");
             for($i=1;$i<=$prof_cnt;$i++)
             {
-            echo("<div class=\"form-group\">");
+            echo("<div class=\"form-group\" id=\"f$i\" >");
 
             echo("<div class=\"col-lg-2\"> ");
-            echo("<label>Subject Code</label>");
+            echo("<label class=\"control-label\">Subject Code</label>");
             echo("</div>");
 
             echo("<div class=\"col-lg-4\"> ");
-            echo("<input type=\"text\" id=\"sub$i\" length=\"6\" maxlength=\"6\" style=\"color:black\"> ");
+            echo("<input class=\"form-control\" type=\"text\" id=\"sub$i\" name=\"sub$i\" length=\"6\" maxlength=\"6\" style=\"color:black\"> ");
             echo("</div>");
 
             echo("<div class=\"col-lg-2\"> ");
-            echo("<label>Faculty</label>");
+            echo("<label class=\"control-label\">Faculty</label>");
             echo("</div>");
 
             echo("<div class=\"col-lg-4\"> ");
-            echo("<input type=\"text\" id=\"prof$i\" length=\"20\" maxlength=\"20\" style=\"width:100%; color:black;\"> ");
+            echo("<input class=\"form-control\" type=\"text\" id=\"prof$i\" name=\"prof$i\" length=\"20\" maxlength=\"20\" style=\"width:100%; color:black;\"> ");
             echo("</div>");
 
             echo("</div>");
@@ -84,7 +98,7 @@ $prof_cnt = $_POST['prof_cnt'];
             ?>
 
             <div class="form-group">
-                <button class="btn btn-default" value="Submit" onclick="return false;">Submit</button>
+                <button class="btn btn-default" value="Submit" onclick="validate();return false;">Submit</button>
             </div>
         </form>
         </div>
